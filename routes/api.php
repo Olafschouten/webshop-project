@@ -10,3 +10,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/products', 'App\Http\Controllers\ProductController@index');
 
 Route::get('/product/{id}', 'App\Http\Controllers\ProductController@showOne');
+
+Route::get('/categories', 'App\Http\Controllers\CategoryController@index');
+
+Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@showOne');

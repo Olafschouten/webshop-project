@@ -10,12 +10,16 @@ import Products from "./Components/Products";
 import Product from "./Components/Product";
 import Checkout from "./Components/Checkout";
 import Cart from "./Components/Cart";
+import Categories from "./Components/Categories";
+import Category from "./Components/Category";
 
 const routes = [
   { path: '/products', component: Products },
   { path: '/product/:id', component: Product, name: 'product' },
   { path: '/cart', component: Cart },
-  { path: '/checkout', component: Checkout }, 
+  { path: '/checkout', component: Checkout },
+  { path: '/categories', component: Categories },
+  { path: '/category/:id', component: Category },
 ]
 
 const router = new VueRouter({
