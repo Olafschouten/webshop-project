@@ -31,7 +31,7 @@ class Product extends Model
         return Product::find($id);
     }
 
-    public static function getSpecificOne($id)
+    public static function getSpecificProduct($id)
     {
         // Find better way!!!
         return \DB::table('products AS p')

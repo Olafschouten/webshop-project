@@ -1,18 +1,25 @@
 <template>
     <div>
         <h1>Product</h1>
-        {{ product.id }}
+        {{ product.product.id }}
         <br />
-        {{ product.title }}
+        {{ product.product.title }}
         <br />
-        {{ product.description }}
+        {{ product.product.description }}
         <br />
-        {{ product.created_at }}
+        {{ product.product.created_at }}
         <br />
-        <img v-bind:src="product.image" alt="img" width="100" height="100"/>
-        <!-- {{ product.pivot.category_id }} -->
+        <img v-bind:src="product.product.image" alt="img" width="100" height="100"/>
+        <hr>
         <br />
-        <!-- {{ product.pivot.product_id }} -->
+        <div v-for="category in product.categories" v-bind:key="category.id">
+            <h3>{{ category.title }}</h3>
+            <hr />
+            <ul>
+                <!-- <li><router-link to="product.url">Link</router-link></li> -->
+                <li><a v-bind:href="category.url">Link</a></li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -30,6 +37,7 @@ export default {
                 image: "",
                 url: "",
                 created_at: "",
+                categories: {},
             },
         };
     },

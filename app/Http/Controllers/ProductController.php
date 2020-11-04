@@ -17,6 +17,11 @@ class ProductController extends Controller
 
     public function showOne($id)
     {
-        return Product::findOrFail($id);
+        $product = Product::findOrFail($id);
+        
+        return [
+            "product" => $product,
+            "categories" => $product->categories,
+        ];
     }
 }

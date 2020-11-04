@@ -1,11 +1,22 @@
 <template>
     <div>
         <h1>Category</h1>
-        <p>{{ category.id }}</p>
+        <p>{{ category.category.id }}</p>
+        <p>{{ category.category.title }}</p>
+        <p>{{ category.category.created_at }}</p>
+        <hr>
         <br />
-        <p>{{ category.title }}</p>
-        <br />
-        <p>{{ category.created_at }}</p>
+        <div v-for="product in category.products" v-bind:key="product.id">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.description }}</p>
+            <p>$ {{ product.price }}</p>
+            <hr />
+            <img v-bind:src="product.image" alt="img" width="100" height="100"/>
+            <ul>
+                <!-- <li><router-link to="product.url">Link</router-link></li> -->
+                <li><a v-bind:href="product.url">Link</a></li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -19,6 +30,7 @@ export default {
                 id: "",
                 title: "",
                 created_at: "",
+                products: {},
             },
         };
     },
