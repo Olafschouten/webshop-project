@@ -1989,6 +1989,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "category",
   data: function data() {
@@ -2074,6 +2078,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
 //
 //
 //
@@ -19987,50 +19995,50 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("Category")]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.category.category.id))]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.category.category.title))]),
-      _vm._v(" "),
-      _c("p", [_vm._v(_vm._s(_vm.category.category.created_at))]),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _vm._l(_vm.category.products, function(product) {
-        return _c("div", { key: product.id }, [
-          _c("h3", [_vm._v(_vm._s(product.title))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(product.description))]),
-          _vm._v(" "),
-          _c("p", [_vm._v("$ " + _vm._s(product.price))]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("img", {
-            attrs: {
-              src: product.image,
-              alt: "img",
-              width: "100",
-              height: "100"
-            }
-          }),
-          _vm._v(" "),
-          _c("ul", [
-            _c("li", [
-              _c("a", { attrs: { href: product.url } }, [_vm._v("Link")])
+  return _c("div", [
+    _c("h1", [_vm._v("Category")]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.category.category.id))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.category.category.title))]),
+    _vm._v(" "),
+    _c("p", [_vm._v(_vm._s(_vm.category.category.created_at))]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _vm.category.products != 0
+      ? _c(
+          "div",
+          _vm._l(_vm.category.products, function(product) {
+            return _c("div", { key: product.id }, [
+              _c("h3", [_vm._v(_vm._s(product.title))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(product.description))]),
+              _vm._v(" "),
+              _c("p", [_vm._v("$ " + _vm._s(product.price))]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("img", {
+                attrs: {
+                  src: product.image,
+                  alt: "img",
+                  width: "100",
+                  height: "100"
+                }
+              }),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c("a", { attrs: { href: product.url } }, [_vm._v("Link")])
+                ])
+              ])
             ])
-          ])
-        ])
-      })
-    ],
-    2
-  )
+          }),
+          0
+        )
+      : _c("div", [_c("p", [_vm._v("No category products")])])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20123,48 +20131,48 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("Product")]),
-      _vm._v("\n    " + _vm._s(_vm.product.product.id) + "\n    "),
-      _c("br"),
-      _vm._v("\n    " + _vm._s(_vm.product.product.title) + "\n    "),
-      _c("br"),
-      _vm._v("\n    " + _vm._s(_vm.product.product.description) + "\n    "),
-      _c("br"),
-      _vm._v("\n    " + _vm._s(_vm.product.product.created_at) + "\n    "),
-      _c("br"),
-      _vm._v(" "),
-      _c("img", {
-        attrs: {
-          src: _vm.product.product.image,
-          alt: "img",
-          width: "100",
-          height: "100"
-        }
-      }),
-      _vm._v(" "),
-      _c("hr"),
-      _vm._v(" "),
-      _c("br"),
-      _vm._v(" "),
-      _vm._l(_vm.product.categories, function(category) {
-        return _c("div", { key: category.id }, [
-          _c("h3", [_vm._v(_vm._s(category.title))]),
-          _vm._v(" "),
-          _c("hr"),
-          _vm._v(" "),
-          _c("ul", [
-            _c("li", [
-              _c("a", { attrs: { href: category.url } }, [_vm._v("Link")])
+  return _c("div", [
+    _c("h1", [_vm._v("Product")]),
+    _vm._v("\n    " + _vm._s(_vm.product.product.id) + "\n    "),
+    _c("br"),
+    _vm._v("\n    " + _vm._s(_vm.product.product.title) + "\n    "),
+    _c("br"),
+    _vm._v("\n    " + _vm._s(_vm.product.product.description) + "\n    "),
+    _c("br"),
+    _vm._v("\n    " + _vm._s(_vm.product.product.created_at) + "\n    "),
+    _c("br"),
+    _vm._v(" "),
+    _c("img", {
+      attrs: {
+        src: _vm.product.product.image,
+        alt: "img",
+        width: "100",
+        height: "100"
+      }
+    }),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _vm.product.categories != 0
+      ? _c(
+          "div",
+          _vm._l(_vm.product.categories, function(category) {
+            return _c("div", { key: category.id }, [
+              _c("h3", [_vm._v(_vm._s(category.title))]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("ul", [
+                _c("li", [
+                  _c("a", { attrs: { href: category.url } }, [_vm._v("Link")])
+                ])
+              ])
             ])
-          ])
-        ])
-      })
-    ],
-    2
-  )
+          }),
+          0
+        )
+      : _c("div", [_c("p", [_vm._v("No product categories")])])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

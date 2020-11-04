@@ -10,15 +10,19 @@
         {{ product.product.created_at }}
         <br />
         <img v-bind:src="product.product.image" alt="img" width="100" height="100"/>
-        <hr>
         <br />
-        <div v-for="category in product.categories" v-bind:key="category.id">
-            <h3>{{ category.title }}</h3>
-            <hr />
-            <ul>
-                <!-- <li><router-link to="product.url">Link</router-link></li> -->
-                <li><a v-bind:href="category.url">Link</a></li>
-            </ul>
+        <div v-if="product.categories != 0">
+            <div v-for="category in product.categories" v-bind:key="category.id">
+                <h3>{{ category.title }}</h3>
+                <hr />
+                <ul>
+                    <!-- <li><router-link to="product.url">Link</router-link></li> -->
+                    <li><a v-bind:href="category.url">Link</a></li>
+                </ul>
+            </div>
+        </div>
+        <div v-else>
+            <p>No product categories</p>
         </div>
     </div>
 </template>
