@@ -13,7 +13,7 @@ import Cart from "./Components/Cart";
 
 const routes = [
   { path: '/products', component: Products },
-  { path: '/product/:id', component: Product },
+  { path: '/product/:id', component: Product, name: 'product' },
   { path: '/cart', component: Cart },
   { path: '/checkout', component: Checkout }, 
 ]

@@ -7,6 +7,11 @@
             <p>{{ product.description }}</p>
             <p>$ {{ product.price }}</p>
             <hr />
+            <img v-bind:src="product.image" alt="img" width="100" height="100"/>
+            <ul>
+                <!-- <li><router-link to="product.url">Link</router-link></li> -->
+                <li><a v-bind:href="product.url">Link</a></li>
+            </ul>
         </div>
 
         <nav aria-label="Page navigation example">
@@ -41,8 +46,10 @@ export default {
                 // Not nessecery for getting it in the site
                 id: "",
                 title: "",
-                description: "",
                 price: "",
+                description: "",
+                image: "",
+                url: "",
                 created_at: "",
             },
             pagination: {},

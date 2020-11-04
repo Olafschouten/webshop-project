@@ -1965,6 +1965,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "product",
   data: function data() {
@@ -1973,7 +1974,10 @@ __webpack_require__.r(__webpack_exports__);
         // Not nessecery for getting it in the site
         id: "",
         title: "",
-        body: "",
+        price: "",
+        description: "",
+        image: "",
+        url: "",
         created_at: ""
       }
     };
@@ -1986,11 +1990,11 @@ __webpack_require__.r(__webpack_exports__);
     fetchProducts: function fetchProducts(route) {
       var _this = this;
 
-      var page_url = "/api" + route;
+      var page_url = "api" + route;
       fetch(page_url).then(function (res) {
         return res.json();
       }).then(function (res) {
-        _this.product = res[0];
+        _this.product = res;
       })["catch"](function (err) {
         return console.log(err);
       });
@@ -2042,6 +2046,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "products",
   components: {},
@@ -2051,8 +2060,10 @@ __webpack_require__.r(__webpack_exports__);
         // Not nessecery for getting it in the site
         id: "",
         title: "",
-        description: "",
         price: "",
+        description: "",
+        image: "",
+        url: "",
         created_at: ""
       },
       pagination: {}
@@ -19867,10 +19878,14 @@ var render = function() {
     _c("br"),
     _vm._v("\n    " + _vm._s(_vm.product.title) + "\n    "),
     _c("br"),
-    _vm._v("\n    " + _vm._s(_vm.product.body) + "\n    "),
+    _vm._v("\n    " + _vm._s(_vm.product.description) + "\n    "),
     _c("br"),
     _vm._v("\n    " + _vm._s(_vm.product.created_at) + "\n    "),
     _c("br"),
+    _vm._v(" "),
+    _c("img", {
+      attrs: { src: _vm.product.image, alt: "img", width: "100", height: "100" }
+    }),
     _vm._v(" "),
     _c("br")
   ])
@@ -19910,7 +19925,22 @@ var render = function() {
           _vm._v(" "),
           _c("p", [_vm._v("$ " + _vm._s(product.price))]),
           _vm._v(" "),
-          _c("hr")
+          _c("hr"),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src: product.image,
+              alt: "img",
+              width: "100",
+              height: "100"
+            }
+          }),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: product.url } }, [_vm._v("Link")])
+            ])
+          ])
         ])
       }),
       _vm._v(" "),
@@ -35696,7 +35726,8 @@ var routes = [{
   component: _Components_Products__WEBPACK_IMPORTED_MODULE_3__["default"]
 }, {
   path: '/product/:id',
-  component: _Components_Product__WEBPACK_IMPORTED_MODULE_4__["default"]
+  component: _Components_Product__WEBPACK_IMPORTED_MODULE_4__["default"],
+  name: 'product'
 }, {
   path: '/cart',
   component: _Components_Cart__WEBPACK_IMPORTED_MODULE_6__["default"]

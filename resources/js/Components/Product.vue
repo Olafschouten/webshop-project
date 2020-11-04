@@ -5,10 +5,11 @@
         <br />
         {{ product.title }}
         <br />
-        {{ product.body }}
+        {{ product.description }}
         <br />
         {{ product.created_at }}
         <br />
+        <img v-bind:src="product.image" alt="img" width="100" height="100"/>
         <!-- {{ product.pivot.category_id }} -->
         <br />
         <!-- {{ product.pivot.product_id }} -->
@@ -24,7 +25,10 @@ export default {
                 // Not nessecery for getting it in the site
                 id: "",
                 title: "",
-                body: "",
+                price: "",
+                description: "",
+                image: "",
+                url: "",
                 created_at: "",
             },
         };
@@ -37,11 +41,11 @@ export default {
 
     methods: {
         fetchProducts(route) {
-            const page_url = "/api" + route;
+            const page_url = "api" + route;
             fetch(page_url)
                 .then((res) => res.json())
                 .then((res) => {
-                    this.product = res[0];
+                    this.product = res;
                 })
                 .catch((err) => console.log(err));
         },
