@@ -21,12 +21,12 @@ class Product extends Model
         )->withTimestamps();
     }
 
-    public static function getProducts()
+    public static function getAll()
     {
         return Product::all();
     }
 
-    public static function getProduct($id)
+    public static function getOne($id)
     {
         return Product::find($id);
     }
