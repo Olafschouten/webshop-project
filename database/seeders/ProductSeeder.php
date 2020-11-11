@@ -16,9 +16,9 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'title' => $this->faker->firstName,
-            'description' => $this->faker->text($maxNbChars = 200),
-            'price' => $this->faker->numerify('##'),
+            'title' => 'p1',
+            'description' => 'descrioption 1',
+            'price' => '10',
             'image' => 'storage/images/file.png',
             'url' => '/#/product/',
             'created_at' => now(),
