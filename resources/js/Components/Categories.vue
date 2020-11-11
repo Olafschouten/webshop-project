@@ -7,7 +7,7 @@
             <p>{{ category.created_at }}</p>
             <ul>
                 <!-- <li><router-link to="product.url">Link</router-link></li> -->
-                <li><a v-bind:href="category.url">Link</a></li>
+                <li><a v-bind:href="category.url + category.id">Link</a></li>
             </ul>
             <hr />
         </div>

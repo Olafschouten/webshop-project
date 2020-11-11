@@ -19962,7 +19962,9 @@ var render = function() {
           _vm._v(" "),
           _c("ul", [
             _c("li", [
-              _c("a", { attrs: { href: category.url } }, [_vm._v("Link")])
+              _c("a", { attrs: { href: category.url + category.id } }, [
+                _vm._v("Link")
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -20222,7 +20224,9 @@ var render = function() {
           _vm._v(" "),
           _c("ul", [
             _c("li", [
-              _c("a", { attrs: { href: product.url } }, [_vm._v("Link")])
+              _c("a", { attrs: { href: product.url + product.id } }, [
+                _vm._v("Link")
+              ])
             ])
           ])
         ])
