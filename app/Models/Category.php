@@ -15,7 +15,7 @@ class Category extends Model
         // Find better way!!!
         return $this->belongsToMany(
             Product::class,
-            'category_product',
+            'category_products',
             'category_id',
             'product_id'
         )->withTimestamps();
@@ -35,9 +35,9 @@ class Category extends Model
     {
         // Find better way!!!
         return \DB::table('categories AS c')
-            ->join('category_product', 'category_id', '=', 'c.id')
+            ->join('category_products', 'category_id', '=', 'c.id')
             ->select('c.id', 'c.title')
-            ->where('category_product.product_id', $id)
+            ->where('category_products.product_id', $id)
             ->get();
     }
 }

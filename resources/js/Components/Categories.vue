@@ -4,10 +4,9 @@
 
         <div v-for="category in categories" v-bind:key="category.id">
             <h3>{{ category.title }}</h3>
-            <p>{{ category.created_at }}</p>
             <ul>
                 <!-- <li><router-link to="product.url">Link</router-link></li> -->
-                <li><a v-bind:href="category.url">Link</a></li>
+                <li><a v-bind:href="'/#/category/' + category.id">Link to category</a></li>
             </ul>
             <hr />
         </div>
