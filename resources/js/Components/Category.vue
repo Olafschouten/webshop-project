@@ -1,9 +1,6 @@
 <template>
     <div>
-        <h1>Category</h1>
-        <p>{{ category.category.id }}</p>
-        <p>{{ category.category.title }}</p>
-        <p>{{ category.category.created_at }}</p>
+        <h1>{{ category.category.title }}</h1>
         <br />
         <div v-if="category.products != 0">
             <div v-for="product in category.products" v-bind:key="product.id">
