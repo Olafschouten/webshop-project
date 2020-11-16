@@ -1,23 +1,18 @@
 <template>
     <div>
-        <h1>Product</h1>
-        {{ product.product.id }}
-        <br />
-        {{ product.product.title }}
-        <br />
+        <h1>{{ product.product.title }}</h1>
         {{ product.product.description }}
         <br />
-        {{ product.product.created_at }}
+        $ {{ product.product.price }}
         <br />
         <img v-bind:src="product.product.image" alt="img" width="100" height="100"/>
         <br />
         <div v-if="product.categories != 0">
             <div v-for="category in product.categories" v-bind:key="category.id">
                 <h3>{{ category.title }}</h3>
-                <hr />
                 <ul>
                     <!-- <li><router-link to="product.url">Link</router-link></li> -->
-                    <li><a v-bind:href="category.url">Link</a></li>
+                    <li><a v-bind:href="'/#/category/' + category.id">Link to category</a></li>
                 </ul>
             </div>
         </div>

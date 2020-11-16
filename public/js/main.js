@@ -1923,7 +1923,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "categories",
   components: {},
@@ -2075,11 +2074,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -19955,11 +19949,11 @@ var render = function() {
         return _c("div", { key: category.id }, [
           _c("h3", [_vm._v(_vm._s(category.title))]),
           _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(category.created_at))]),
-          _vm._v(" "),
           _c("ul", [
             _c("li", [
-              _c("a", { attrs: { href: category.url } }, [_vm._v("Link")])
+              _c("a", { attrs: { href: "/#/category/" + category.id } }, [
+                _vm._v("Link to category")
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -20021,7 +20015,9 @@ var render = function() {
               _vm._v(" "),
               _c("ul", [
                 _c("li", [
-                  _c("a", { attrs: { href: product.url } }, [_vm._v("Link")])
+                  _c("a", { attrs: { href: "/#/product/" + product.id } }, [
+                    _vm._v("Link to product")
+                  ])
                 ])
               ])
             ])
@@ -20123,14 +20119,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Product")]),
-    _vm._v("\n    " + _vm._s(_vm.product.product.id) + "\n    "),
-    _c("br"),
-    _vm._v("\n    " + _vm._s(_vm.product.product.title) + "\n    "),
-    _c("br"),
+    _c("h1", [_vm._v(_vm._s(_vm.product.product.title))]),
     _vm._v("\n    " + _vm._s(_vm.product.product.description) + "\n    "),
     _c("br"),
-    _vm._v("\n    " + _vm._s(_vm.product.product.created_at) + "\n    "),
+    _vm._v("\n    $ " + _vm._s(_vm.product.product.price) + "\n    "),
     _c("br"),
     _vm._v(" "),
     _c("img", {
@@ -20151,11 +20143,11 @@ var render = function() {
             return _c("div", { key: category.id }, [
               _c("h3", [_vm._v(_vm._s(category.title))]),
               _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
               _c("ul", [
                 _c("li", [
-                  _c("a", { attrs: { href: category.url } }, [_vm._v("Link")])
+                  _c("a", { attrs: { href: "/#/category/" + category.id } }, [
+                    _vm._v("Link to category")
+                  ])
                 ])
               ])
             ])
@@ -20213,7 +20205,9 @@ var render = function() {
           _vm._v(" "),
           _c("ul", [
             _c("li", [
-              _c("a", { attrs: { href: product.url } }, [_vm._v("Link")])
+              _c("a", { attrs: { href: "/#/product/" + product.id } }, [
+                _vm._v("Link to product")
+              ])
             ])
           ])
         ])
