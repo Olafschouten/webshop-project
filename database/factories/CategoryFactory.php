@@ -23,7 +23,6 @@ class CategoryFactory extends Factory
     {
         return [
             'title' => $this->faker->firstName,
-            'url' => '/#/category/',
         ];
     }
 }

@@ -26,7 +26,6 @@ class ProductFactory extends Factory
             'description' => $this->faker->text($maxNbChars = 200),
             'price' => $this->faker->numerify('##'),
             'image' => 'storage/images/file.png',
-            'url' => '/#/product/',
             'created_at' => now(),
             'updated_at' => now(),
         ];
