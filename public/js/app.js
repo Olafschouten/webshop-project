@@ -23047,7 +23047,9 @@ var render = function() {
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/cart" } }, [_vm._v("Cart")]),
       _vm._v(" "),
-      _c("router-link", { attrs: { to: "/checkout" } }, [_vm._v("Check-out")]),
+      _c("router-link", { attrs: { to: "/productstest" } }, [
+        _vm._v("Products-test")
+      ]),
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/categories" } }, [
         _vm._v("Categories")
@@ -41460,7 +41462,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.mixin({
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__["InertiaApp"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(laravel_jetstream__WEBPACK_IMPORTED_MODULE_2__["InertiaForm"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(portal_vue__WEBPACK_IMPORTED_MODULE_3___default.a);
-var app = document.getElementById('app');
+var app = document.getElementById("app");
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   render: function render(h) {
     return h(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_1__["InertiaApp"], {
@@ -41491,7 +41493,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
