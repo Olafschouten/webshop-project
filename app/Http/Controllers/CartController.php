@@ -2,17 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
+use App\Models\Cart;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function index()
-    {
-        return Inertia::render('Site/Cart');
-    }
 
-    public function checkout()
-    {
-        return Inertia::render('Site/Checkout');
-    }
 }

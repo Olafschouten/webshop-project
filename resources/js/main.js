@@ -9,20 +9,21 @@ Vue.use(VueRouter);
 import App from "./app.vue";
 import Products from "./Components/Products";
 import Product from "./Components/Product";
-import ProductsTest from "./Components/ProductsTest";
 import Cart from "./Components/Cart";
 import Categories from "./Components/Categories";
 import Category from "./Components/Category";
 import About from "./Components/About";
+import Products1 from "./Components/Products1";
+import Checkout from "./Components/Checkout";
 
 const routes = [
   { path: "/products", component: Products },
   { path: "/product/:id", component: Product, name: "product" },
   { path: "/cart", component: Cart },
-  { path: "/productstest", component: ProductsTest },
   { path: "/categories", component: Categories },
   { path: "/category/:id", component: Category },
-  { path: "/about", component: About }
+  { path: "/about", component: About },
+  { path: "/checkout", component: Checkout }
 ];
 
 const router = new VueRouter({
@@ -36,5 +37,5 @@ new Vue({
   router,
   components: {
     App
-  }
+  },
 });

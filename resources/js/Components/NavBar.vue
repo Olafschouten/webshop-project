@@ -2,7 +2,6 @@
   <div>
     <router-link to="/products">Products</router-link>
     <router-link to="/cart">Cart</router-link>
-    <router-link to="/productstest">Products-test</router-link>
     <router-link to="/categories">Categories</router-link>
     <router-link to="/about">About</router-link>
   </div>

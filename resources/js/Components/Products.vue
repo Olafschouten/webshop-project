@@ -11,6 +11,7 @@
       <ul>
         <!-- <li><router-link to="product.url">Link</router-link></li> -->
         <li><a v-bind:href="'/#/product/' + product.id">Link to product</a></li>
+        <button @click="addToCart(product.id)">Add to cart</button>
       </ul>
     </div>
 
@@ -37,6 +38,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "products",
   components: {},
@@ -55,11 +58,14 @@ export default {
       pagination: {},
     };
   },
-
   created() {
     this.fetchProducts();
+    this.getProductsAction();
   },
-
+  computed: {
+    ...mapGetters("products", { products: "getProductsData" }),
+    ...mapActions("cart", ["setState"]),
+  },
   methods: {
     fetchProducts(page_url) {
       let vm = this;
@@ -81,6 +87,17 @@ export default {
       };
 
       this.pagination = pagination;
+    },
+    ...mapActions("products", ["getProductsAction"]),
+    ...mapActions("cart", ["addToCartAction", "setCount", "countAddOne"]),
+    addToCart(productId) {
+      this.addToCartAction(productId);
+    },
+    setCount1(store) {
+      this.setCount();
+    },
+    countAddOne1() {
+      this.countAddOne();
     },
   },
 };

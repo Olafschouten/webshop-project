@@ -1943,7 +1943,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -23046,10 +23045,6 @@ var render = function() {
       _c("router-link", { attrs: { to: "/products" } }, [_vm._v("Products")]),
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/cart" } }, [_vm._v("Cart")]),
-      _vm._v(" "),
-      _c("router-link", { attrs: { to: "/productstest" } }, [
-        _vm._v("Products-test")
-      ]),
       _vm._v(" "),
       _c("router-link", { attrs: { to: "/categories" } }, [
         _vm._v("Categories")
