@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <h1>Categories</h1>
+  <div>
+    <h1>Categories</h1>
 
+<<<<<<< HEAD
         <div v-for="category in categories" v-bind:key="category.id">
             <h3>{{ category.title }}</h3>
             <p>{{ category.created_at }}</p>
@@ -11,38 +12,50 @@
             </ul>
             <hr />
         </div>
+=======
+    <div v-for="category in categories" v-bind:key="category.id">
+      <h3>{{ category.title }}</h3>
+      <ul>
+        <!-- <li><router-link to="product.url">Link</router-link></li> -->
+        <li>
+          <a v-bind:href="'/#/category/' + category.id">Link to category</a>
+        </li>
+      </ul>
+      <hr />
+>>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "categories",
-    components: {},
-    data() {
-        return {
-            categories: {
-                // Not nessecery for getting it in the site
-                id: "",
-                title: "",
-                created_at: "",
-            },
-        };
-    },
+  name: "categories",
+  components: {},
+  data() {
+    return {
+      categories: {
+        // Not nessecery for getting it in the site
+        id: "",
+        title: "",
+        created_at: "",
+      },
+    };
+  },
 
-    created() {
-        this.fetchProducts();
-    },
+  created() {
+    this.fetchProducts();
+  },
 
-    methods: {
-        fetchProducts(page_url) {
-            page_url = page_url || "/api/categories";
-            fetch(page_url)
-                .then((res) => res.json())
-                .then((res) => {
-                    this.categories = res;
-                })
-                .catch((err) => console.log(err));
-        },
+  methods: {
+    fetchProducts(page_url) {
+      page_url = page_url || "/api/categories";
+      fetch(page_url)
+        .then((res) => res.json())
+        .then((res) => {
+          this.categories = res;
+        })
+        .catch((err) => console.log(err));
     },
+  },
 };
 </script>
