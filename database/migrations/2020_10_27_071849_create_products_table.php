@@ -19,7 +19,6 @@ class CreateProductsTable extends Migration
             $table->text('description');
             $table->integer('price');
             $table->text('image')->nullable();
-            $table->text('url')->nullable();
             $table->timestamps();
         });
     }

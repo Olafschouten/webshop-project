@@ -6,7 +6,10 @@
         <div class="flex justify-between h-16">
           <div class="flex">
             <!-- Navigation Links -->
-
+              <a href="/#/products">Products</a>
+              <a href="/#/categories">Categories</a>
+              <a href="/#/cart">Cart</a>
+              <a href="/#/checkout">Check-out</a>
           </div>
 
           <!-- Settings Dropdown -->
@@ -187,6 +190,7 @@
     import JetDropdownLink from './../Jetstream/DropdownLink'
     import JetNavLink from './../Jetstream/NavLink'
     import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
+    import NavBar from './../Components/NavBar'
 
     export default {
         components: {
@@ -196,6 +200,7 @@
             JetDropdownLink,
             JetNavLink,
             JetResponsiveNavLink,
+            NavBar,
         },
 
         data() {
