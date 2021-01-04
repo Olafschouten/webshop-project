@@ -2,19 +2,6 @@
   <div>
     <h1>Products</h1>
 
-<<<<<<< HEAD
-        <div v-for="product in products" v-bind:key="product.id">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.description }}</p>
-            <p>$ {{ product.price }}</p>
-            <hr />
-            <img v-bind:src="product.image" alt="img" width="100" height="100"/>
-            <ul>
-                <!-- <li><router-link to="product.url">Link</router-link></li> -->
-                <li><a v-bind:href="product.url + product.id">Link</a></li>
-            </ul>
-        </div>
-=======
     <div v-for="product in products" v-bind:key="product.id">
       <h3>{{ product.title }}</h3>
       <p>{{ product.description }}</p>
@@ -27,7 +14,6 @@
         <button @click="addToCart(product.id)">Add to cart</button>
       </ul>
     </div>
->>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968
 
     <nav aria-label="Page navigation example">
       <ul>
@@ -77,7 +63,7 @@ export default {
     this.getProductsAction();
   },
   computed: {
-    ...mapGetters("products", { products: "getProductsData" }),
+    ...mapGetters("products", { products1: "getProductsData" }),
     ...mapActions("cart", ["setState"]),
   },
   methods: {

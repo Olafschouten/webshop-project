@@ -129,7 +129,11 @@ export default {
     },
     reduceOne({ commit }, product) {
       try {
-        commit("REDUCE_ONE", product);
+        if (product.qty <= 1) {
+          commit("REMOVE_ALL", product);
+        } else if (product.qty >= 2) {
+          commit("REDUCE_ONE", product);
+        }
       } catch (e) {
         return console.log(e);
       }
