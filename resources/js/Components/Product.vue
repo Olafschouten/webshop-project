@@ -13,6 +13,7 @@
         height="100"
       />
       <br />
+      <button @click="addToCart(product.id)">Add to cart</button>
     </div>
     <h3>Categories</h3>
     <div v-if="product.categories != 0">
@@ -33,6 +34,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "product",
   data() {
@@ -65,6 +68,10 @@ export default {
           this.product = res;
         })
         .catch((err) => console.log(err));
+    },
+    ...mapActions("cart", ["addToCartAction"]),
+    addToCart(productId) {
+      this.addToCartAction(productId);
     },
   },
 };
