@@ -2,27 +2,13 @@
   <div>
     <h1>Categories</h1>
 
-<<<<<<< HEAD
-        <div v-for="category in categories" v-bind:key="category.id">
-            <h3>{{ category.title }}</h3>
-            <p>{{ category.created_at }}</p>
-            <ul>
-                <!-- <li><router-link to="product.url">Link</router-link></li> -->
-                <li><a v-bind:href="category.url + category.id">Link</a></li>
-            </ul>
-            <hr />
-        </div>
-=======
     <div v-for="category in categories" v-bind:key="category.id">
       <h3>{{ category.title }}</h3>
+      <p>{{ category.created_at }}</p>
       <ul>
-        <!-- <li><router-link to="product.url">Link</router-link></li> -->
-        <li>
-          <a v-bind:href="'/#/category/' + category.id">Link to category</a>
-        </li>
+        <li><a v-bind:href="category.url + category.id">Link</a></li>
       </ul>
       <hr />
->>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968
     </div>
   </div>
 </template>
