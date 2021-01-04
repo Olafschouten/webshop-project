@@ -24,7 +24,7 @@ class ProductController extends Controller
 
         return [
             "product" => $product,
-            "categories" => $product->categories,
+            // "categories" => $product->categories,
         ];
     }
 
