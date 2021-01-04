@@ -1,17 +1,20 @@
 <template>
   <div>
-    <h1>{{ product.product.title }}</h1>
-    {{ product.product.description }}
-    <br />
-    $ {{ product.product.price }}
-    <br />
-    <img
-      v-bind:src="product.product.image"
-      alt="img"
-      width="100"
-      height="100"
-    />
-    <br />
+    <div v-if="product.product != 0">
+      <h1>{{ product.product.title }}</h1>
+      {{ product.product.description }}
+      <br />
+      $ {{ product.product.price }}
+      <br />
+      <img
+        v-bind:src="product.product.image"
+        alt="img"
+        width="100"
+        height="100"
+      />
+      <br />
+      <button @click="addToCart(product.id)">Add to cart</button>
+    </div>
     <h3>Categories</h3>
     <div v-if="product.categories != 0">
       <div v-for="category in product.categories" v-bind:key="category.id">
@@ -31,6 +34,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "product",
   data() {
@@ -63,6 +68,10 @@ export default {
           this.product = res;
         })
         .catch((err) => console.log(err));
+    },
+    ...mapActions("cart", ["addToCartAction"]),
+    addToCart(productId) {
+      this.addToCartAction(productId);
     },
   },
 };

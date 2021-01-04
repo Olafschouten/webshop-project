@@ -13,7 +13,6 @@ import Cart from "./Components/Cart";
 import Categories from "./Components/Categories";
 import Category from "./Components/Category";
 import About from "./Components/About";
-import Products1 from "./Components/Products1";
 import Checkout from "./Components/Checkout";
 
 const routes = [
