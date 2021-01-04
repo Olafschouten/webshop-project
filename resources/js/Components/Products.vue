@@ -62,7 +62,7 @@ export default {
     this.getProductsAction();
   },
   computed: {
-    ...mapGetters("products", { products: "getProductsData" }),
+    ...mapGetters("products", { products1: "getProductsData" }),
     ...mapActions("cart", ["setState"]),
   },
   methods: {
