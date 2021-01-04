@@ -2018,6 +2018,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "categories",
   components: {},
@@ -2284,6 +2296,20 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -21009,25 +21035,39 @@ var render = function() {
     "div",
     [
       _c("h1", [_vm._v("Categories")]),
-      _vm._v(" "),
+      _vm._v("\n\n<<<<<<< HEAD\n        "),
+      _vm._l(_vm.categories, function(category) {
+        return _c("div", { key: category.id }, [
+          _c("h3", [_vm._v(_vm._s(category.title))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(category.created_at))]),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
+              _c("a", { attrs: { href: category.url + category.id } }, [
+                _vm._v("Link")
+              ])
+            ])
+          ]),
+          _vm._v(" "),
+          _c("hr")
+        ])
+      }),
+      _vm._v("\n=======\n    "),
       _vm._l(_vm.categories, function(category) {
         return _c("div", { key: category.id }, [
           _c("h3", [_vm._v(_vm._s(category.title))]),
           _vm._v(" "),
           _c("ul", [
             _c("li", [
-<<<<<<< HEAD
-              _c("a", { attrs: { href: category.url + category.id } }, [
-                _vm._v("Link")
-=======
               _c("a", { attrs: { href: "/#/category/" + category.id } }, [
                 _vm._v("Link to category")
->>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968
               ])
             ])
           ]),
           _vm._v(" "),
-          _c("hr")
+          _c("hr"),
+          _vm._v("\n>>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968\n    ")
         ])
       })
     ],
@@ -21266,7 +21306,7 @@ var render = function() {
     "div",
     [
       _c("h1", [_vm._v("Products")]),
-      _vm._v(" "),
+      _vm._v("\n\n<<<<<<< HEAD\n        "),
       _vm._l(_vm.products, function(product) {
         return _c("div", { key: product.id }, [
           _c("h3", [_vm._v(_vm._s(product.title))]),
@@ -21288,12 +21328,35 @@ var render = function() {
           _vm._v(" "),
           _c("ul", [
             _c("li", [
-<<<<<<< HEAD
               _c("a", { attrs: { href: product.url + product.id } }, [
                 _vm._v("Link")
               ])
             ])
-=======
+          ])
+        ])
+      }),
+      _vm._v("\n=======\n    "),
+      _vm._l(_vm.products, function(product) {
+        return _c("div", { key: product.id }, [
+          _c("h3", [_vm._v(_vm._s(product.title))]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(product.description))]),
+          _vm._v(" "),
+          _c("p", [_vm._v("$ " + _vm._s(product.price))]),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("img", {
+            attrs: {
+              src: product.image,
+              alt: "img",
+              width: "100",
+              height: "100"
+            }
+          }),
+          _vm._v(" "),
+          _c("ul", [
+            _c("li", [
               _c("a", { attrs: { href: "/#/product/" + product.id } }, [
                 _vm._v("Link to product")
               ])
@@ -21310,11 +21373,10 @@ var render = function() {
               },
               [_vm._v("Add to cart")]
             )
->>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968
           ])
         ])
       }),
-      _vm._v(" "),
+      _vm._v("\n>>>>>>> c41b3bce970c1576cc1cc06c53fa7e46dd047968\n\n    "),
       _c("nav", { attrs: { "aria-label": "Page navigation example" } }, [
         _c("ul", [
           _c("li", { class: [{ disabled: !_vm.pagination.prev_page_url }] }, [
