@@ -9,8 +9,8 @@
       <hr />
       <img v-bind:src="product.image" alt="img" width="100" height="100" />
       <ul>
-        <!-- <li><router-link to="product.url">Link</router-link></li> -->
-        <li><a v-bind:href="product.url + product.id">Link</a></li>
+        <li><a v-bind:href="'/#/product/' + product.id">Link to product</a></li>
+        <button @click="addToCart(product.id)">Add to cart</button>
       </ul>
     </div>
 

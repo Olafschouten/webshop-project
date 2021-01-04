@@ -21282,10 +21282,22 @@ var render = function() {
           _vm._v(" "),
           _c("ul", [
             _c("li", [
-              _c("a", { attrs: { href: product.url + product.id } }, [
-                _vm._v("Link")
+              _c("a", { attrs: { href: "/#/product/" + product.id } }, [
+                _vm._v("Link to product")
               ])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.addToCart(product.id)
+                  }
+                }
+              },
+              [_vm._v("Add to cart")]
+            )
           ])
         ])
       }),
