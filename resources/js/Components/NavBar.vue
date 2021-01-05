@@ -4,6 +4,7 @@
     <router-link to="/cart">Cart</router-link>
     <router-link to="/categories">Categories</router-link>
     <router-link to="/about">About</router-link>
+    <router-link to="/contact">Contact</router-link>
   </div>
 </template>
 
