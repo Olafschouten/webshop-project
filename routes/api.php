@@ -15,12 +15,7 @@ Route::get('/categories', 'App\Http\Controllers\CategoryController@index');
 
 Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@showOne');
 
-Route::group(['middleware' => 'web'], function () {
-  Route::get('/cart', 'App\Http\Controllers\ProductController@getCart');
-
-  Route::get('/add/{id}', 'App\Http\Controllers\ProductController@addToCart');
-
-  Route::get('/remove/{id}', 'App\Http\Controllers\ProductController@removeItem');
-
-  Route::get('/removeone/{id}', 'App\Http\Controllers\ProductController@reduceByOne');
+Route::middleware(['auth'])->group(function () {
+  // Route::get('/cart', 'App\Http\Controllers\ProductController@getCart');
 });
+Route::get('/orders', 'App\Http\Controllers\UserController@getOrders');

@@ -59,10 +59,10 @@ class User extends Authenticatable
     'profile_photo_url',
   ];
 
-  // public function orders()
-  // {
-  //   return $this->hasMany(Oder::class);
-  // }
+  public function orders()
+  {
+    return $this->hasMany(Order::class);
+  }
 
   public function cart()
   {

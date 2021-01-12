@@ -2138,6 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _CheckoutMixin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CheckoutMixin */ "./resources/js/CheckoutMixin.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2158,9 +2159,120 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "Cart",
+  name: "Checkout",
+  mixins: [_CheckoutMixin__WEBPACK_IMPORTED_MODULE_1__["default"]],
+  data: function data() {
+    return {
+      action: "/checkout "
+    };
+  },
   computed: _objectSpread(_objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapActions"])("cart", ["setState", "getCartProducts"])), Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapGetters"])("cart", {
     cartData: "getCart"
   })),
@@ -2200,7 +2312,138 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fields: {},
+      errors: {}
+    };
+  },
+  methods: {
+    checkForm: function checkForm(e) {
+      if (this.firstName && this.lastName && this.adress && this.zip && this.street && this.email) {
+        return true;
+      }
+
+      this.errors = [];
+
+      if (!this.firstName) {
+        this.errors.push("Fisrt name required.");
+      }
+
+      if (!this.lastName) {
+        this.errors.push("Last name required.");
+      }
+
+      if (!this.adress) {
+        this.errors.push("Adress required.");
+      }
+
+      if (!this.zip) {
+        this.errors.push("Zip required.");
+      }
+
+      if (!this.street) {
+        this.errors.push("Street + housenumber required.");
+      }
+
+      if (!this.email) {
+        this.errors.push("Email required.");
+      } else if (!this.validEmail(this.email)) {
+        this.errors.push("Valid email required.");
+      }
+
+      e.preventDefault();
+    },
+    validEmail: function validEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+  }
+});
 
 /***/ }),
 
@@ -21128,25 +21371,280 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", [_vm._v("Checkout")]),
-      _vm._v(" "),
-      _vm._l(_vm.cartData.products, function(product) {
-        return _c("div", { key: product.id }, [
-          _c("h2", [_vm._v(_vm._s(product["title"]))]),
+  return _c("div", [
+    _c("h1", [_vm._v("Checkout")]),
+    _vm._v(" "),
+    _vm.cartData.products != null
+      ? _c(
+          "div",
+          [
+            _vm._l(_vm.cartData.products, function(product) {
+              return _c("div", { key: product.id }, [
+                _c("p", [_vm._v(_vm._s(product["title"]))]),
+                _vm._v(" "),
+                _c("p", [_vm._v("Quantity: " + _vm._s(product["qty"]))]),
+                _vm._v(" "),
+                _c("p", [_vm._v("$: " + _vm._s(product["price"]))])
+              ])
+            }),
+            _vm._v(" "),
+            _c("h2", [_vm._v("Total $: " + _vm._s(_vm.cartData.totalPrice))])
+          ],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Checkout form")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.submit($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "firstName" } }, [_vm._v("First name")]),
           _vm._v(" "),
-          _c("p", [_vm._v("Quantity: " + _vm._s(product["qty"]))]),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.firstName,
+                expression: "fields.firstName"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "firstName", id: "firstName" },
+            domProps: { value: _vm.fields.firstName },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "firstName", $event.target.value)
+              }
+            }
+          }),
           _vm._v(" "),
-          _c("p", [_vm._v("$: " + _vm._s(product["price"]))])
-        ])
-      }),
-      _vm._v(" "),
-      _c("h2", [_vm._v("Total $: " + _vm._s(_vm.cartData.totalPrice))])
-    ],
-    2
-  )
+          _vm.errors && _vm.errors.firstName
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(
+                  "\n        " + _vm._s(_vm.errors.firstName[0]) + "\n      "
+                )
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "lastName" } }, [_vm._v("Last name")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.lastName,
+                expression: "fields.lastName"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "lastName", id: "lastName" },
+            domProps: { value: _vm.fields.lastName },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "lastName", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.lastName
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(
+                  "\n        " + _vm._s(_vm.errors.lastName[0]) + "\n      "
+                )
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "zip" } }, [_vm._v("Zip")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.zip,
+                expression: "fields.zip"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "zip", id: "zip" },
+            domProps: { value: _vm.fields.zip },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "zip", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.zip
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v("\n        " + _vm._s(_vm.errors.zip[0]) + "\n      ")
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "street" } }, [_vm._v("Street")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.street,
+                expression: "fields.street"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "street", id: "street" },
+            domProps: { value: _vm.fields.street },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "street", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.street
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v("\n        " + _vm._s(_vm.errors.street[0]) + "\n      ")
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "houseNumber" } }, [
+            _vm._v("Housenumber")
+          ]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.houseNumber,
+                expression: "fields.houseNumber"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "text", name: "houseNumber", id: "houseNumber" },
+            domProps: { value: _vm.fields.houseNumber },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "houseNumber", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.houseNumber
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v(
+                  "\n        " + _vm._s(_vm.errors.houseNumber[0]) + "\n      "
+                )
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("label", { attrs: { for: "email" } }, [_vm._v("E-mail")]),
+          _vm._v(" "),
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.email,
+                expression: "fields.email"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "email", name: "email", id: "email" },
+            domProps: { value: _vm.fields.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "email", $event.target.value)
+              }
+            }
+          }),
+          _vm._v(" "),
+          _vm.errors && _vm.errors.email
+            ? _c("div", { staticClass: "text-danger" }, [
+                _vm._v("\n        " + _vm._s(_vm.errors.email[0]) + "\n      ")
+              ])
+            : _vm._e()
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "form-group" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.fields.cart,
+                expression: "fields.cart"
+              }
+            ],
+            staticClass: "form-control",
+            attrs: { type: "hidden", name: "cart", id: "cart" },
+            domProps: { value: _vm.fields.cart },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.fields, "cart", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("Send message")]
+        ),
+        _vm._v(" "),
+        _vm.success
+          ? _c("div", { staticClass: "alert alert-success mt-3" }, [
+              _vm._v("Message sent!")
+            ])
+          : _vm._e()
+      ]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -21185,7 +21683,190 @@ var render = function() {
       _vm._v(" "),
       _c("A", { attrs: { HREF: "mailto:info@123456789.com" } }, [
         _vm._v("Abcd Company")
-      ])
+      ]),
+      _vm._v(" "),
+      _c("br"),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          attrs: {
+            id: "app",
+            action: "http://127.0.0.1:8000/api/checkout",
+            method: "post"
+          },
+          on: { submit: _vm.checkForm }
+        },
+        [
+          _vm.errors.length
+            ? _c("p", [
+                _c("b", [_vm._v("Please correct the following error(s):")]),
+                _vm._v(" "),
+                _c(
+                  "ul",
+                  _vm._l(_vm.errors, function(error) {
+                    return _c("li", [_vm._v(_vm._s(error))])
+                  }),
+                  0
+                )
+              ])
+            : _vm._e(),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", { attrs: { for: "firstName" } }, [_vm._v("Fist name")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.firstName,
+                  expression: "firstName"
+                }
+              ],
+              attrs: { id: "firstName", type: "text", name: "firstName" },
+              domProps: { value: _vm.firstName },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.firstName = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", { attrs: { for: "lastName" } }, [_vm._v("Last name")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.lastName,
+                  expression: "lastName"
+                }
+              ],
+              attrs: { id: "lastName", type: "text", name: "lastName" },
+              domProps: { value: _vm.lastName },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.lastName = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", { attrs: { for: "adress" } }, [_vm._v("Adress")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.adress,
+                  expression: "adress"
+                }
+              ],
+              attrs: { id: "adress", type: "text", name: "adress" },
+              domProps: { value: _vm.adress },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.adress = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", { attrs: { for: "zip" } }, [_vm._v("Zip")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.zip,
+                  expression: "zip"
+                }
+              ],
+              attrs: { id: "zip", type: "text", name: "zip" },
+              domProps: { value: _vm.zip },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.zip = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", { attrs: { for: "street" } }, [
+              _vm._v("Street + housenumber")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.street,
+                  expression: "street"
+                }
+              ],
+              attrs: { id: "street", type: "text", name: "street" },
+              domProps: { value: _vm.street },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.street = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("p", [
+            _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.email,
+                  expression: "email"
+                }
+              ],
+              attrs: { id: "email", type: "text", name: "email" },
+              domProps: { value: _vm.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ]
+      )
     ],
     1
   )
@@ -21211,6 +21892,14 @@ var staticRenderFns = [
       _c("li", [_vm._v("City: Abcdefg")]),
       _vm._v(" "),
       _c("li", [_vm._v("ZIP: 1234 AB")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("input", { attrs: { type: "submit", value: "Submit" } })
     ])
   }
 ]
@@ -37969,6 +38658,58 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./resources/js/CheckoutMixin.js":
+/*!***************************************!*\
+  !*** ./resources/js/CheckoutMixin.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      fields: {},
+      errors: {},
+      success: false,
+      loaded: true,
+      action: ""
+    };
+  },
+  methods: {
+    submit: function submit() {
+      var _this = this;
+
+      Object.assign(this.fields, {
+        cart: localStorage.getItem("cart")
+      });
+
+      if (this.loaded) {
+        this.loaded = false;
+        this.success = false;
+        this.errors = {};
+        axios.post(this.action, this.fields) // .then(response => {
+        //   this.fields = {}; //Clear input fields.
+        //   this.loaded = true;
+        //   this.success = true;
+        // })
+        .then(function (response) {
+          console.log(response);
+        })["catch"](function (error) {
+          _this.loaded = true;
+
+          if (error.response.status === 422) {
+            _this.errors = error.response.data.errors || {};
+          }
+        });
+      }
+    }
+  }
+});
 
 /***/ }),
 
