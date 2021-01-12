@@ -38962,7 +38962,7 @@ var captains = console;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/olafschouten/Sites/Webshop-project1/webshop-project/resources/js/main.js */"./resources/js/main.js");
+module.exports = __webpack_require__(/*! /Users/olafschouten/Sites/webshop-project/resources/js/main.js */"./resources/js/main.js");
 
 
 /***/ })
