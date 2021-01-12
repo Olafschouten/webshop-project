@@ -21369,15 +21369,6 @@ var render = function() {
           _vm._v(" "),
           _c("hr"),
           _vm._v(" "),
-          _c("img", {
-            attrs: {
-              src: product.image,
-              alt: "img",
-              width: "100",
-              height: "100"
-            }
-          }),
-          _vm._v(" "),
           _c("ul", [
             _c("li", [
               _c("a", { attrs: { href: "/#/product/" + product.id } }, [
@@ -39110,7 +39101,7 @@ var captains = console;
 
               case 4:
                 response = _context.sent;
-                products = parseList(response);
+                products = response;
                 commit("GET_PRODUCTS", products);
                 return _context.abrupt("return", products);
 

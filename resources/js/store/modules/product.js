@@ -16,7 +16,7 @@ export default {
     async getProductsAction({ commit }) {
       try {
         const response = await axios.get(`http://127.0.0.1:8000/api/products`);
-        const products = parseList(response);
+        const products = response;
         commit("GET_PRODUCTS", products);
         return products;
       } catch (error) {
