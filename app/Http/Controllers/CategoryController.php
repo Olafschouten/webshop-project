@@ -19,7 +19,7 @@ class CategoryController extends Controller
 
         return [
             "category" => $category,
-            // "products" => $category->products
+            "products" => $category->products
         ];
     }
 }

@@ -1,24 +1,26 @@
 <template>
   <div>
-    <h1>{{ category.category.title }}</h1>
-    <br />
-    <div v-if="category.products != 0">
-      <div v-for="product in category.products" v-bind:key="product.id">
-        <h3>{{ product.title }}</h3>
-        <p>{{ product.description }}</p>
-        <p>$ {{ product.price }}</p>
-        <hr />
-        <img v-bind:src="product.image" alt="img" width="100" height="100" />
-        <ul>
-          <!-- <li><router-link to="product.url">Link</router-link></li> -->
-          <li>
-            <a v-bind:href="'/#/product/' + product.id">Link to product</a>
-          </li>
-        </ul>
+    <div v-if="category.category">
+      <h1>{{ category.category.title }}</h1>
+      <br />
+      <div v-if="category.products != 0">
+        <div v-for="product in category.products" v-bind:key="product.id">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.description }}</p>
+          <p>$ {{ product.price }}</p>
+          <hr />
+          <img v-bind:src="product.image" alt="img" width="100" height="100" />
+          <ul>
+            <!-- <li><router-link to="product.url">Link</router-link></li> -->
+            <li>
+              <a v-bind:href="'/#/product/' + product.id">Link to product</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div v-else>
-      <p>No category products</p>
+      <div v-else>
+        <p>No category products</p>
+      </div>
     </div>
   </div>
 </template>
