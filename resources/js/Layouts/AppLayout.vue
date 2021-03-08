@@ -6,10 +6,10 @@
         <div class="flex justify-between h-16">
           <div class="flex">
             <!-- Navigation Links -->
-              <a href="/#/products">Products</a>
-              <a href="/#/categories">Categories</a>
-              <a href="/#/cart">Cart</a>
-              <a href="/#/checkout">Check-out</a>
+            <a href="/#/products">Products</a>
+            <a href="/#/categories">Categories</a>
+            <a href="/#/cart">Cart</a>
+            <a href="/#/checkout">Check-out</a>
           </div>
 
           <!-- Settings Dropdown -->
@@ -64,7 +64,7 @@
 
                   <!-- Authentication -->
                   <form @submit.prevent="logout">
-                    <jet-dropdown-link as="button"> Logout </jet-dropdown-link>
+                    <jet-dropdown-link as="button"> Logout</jet-dropdown-link>
                   </form>
                 </template>
               </jet-dropdown>
@@ -179,56 +179,56 @@
     </main>
 
     <!-- Modal Portal -->
-    <portal-target name="modal" multiple> </portal-target>
+    <portal-target name="modal" multiple></portal-target>
   </div>
 </template>
 
 <script>
-    import JetApplicationLogo from './../Jetstream/ApplicationLogo'
-    import JetApplicationMark from './../Jetstream/ApplicationMark'
-    import JetDropdown from './../Jetstream/Dropdown'
-    import JetDropdownLink from './../Jetstream/DropdownLink'
-    import JetNavLink from './../Jetstream/NavLink'
-    import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
-    import NavBar from './../Components/NavBar'
+import JetApplicationLogo from './../Jetstream/ApplicationLogo';
+import JetApplicationMark from './../Jetstream/ApplicationMark';
+import JetDropdown from './../Jetstream/Dropdown';
+import JetDropdownLink from './../Jetstream/DropdownLink';
+import JetNavLink from './../Jetstream/NavLink';
+import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink';
+import NavBar from './../Components/NavBar';
 
-    export default {
-        components: {
-            JetApplicationLogo,
-            JetApplicationMark,
-            JetDropdown,
-            JetDropdownLink,
-            JetNavLink,
-            JetResponsiveNavLink,
-            NavBar,
+export default {
+    components: {
+        JetApplicationLogo,
+        JetApplicationMark,
+        JetDropdown,
+        JetDropdownLink,
+        JetNavLink,
+        JetResponsiveNavLink,
+        NavBar,
+    },
+
+    data() {
+        return {
+            showingNavigationDropdown: false,
+        };
+    },
+
+    methods: {
+        switchToTeam(team) {
+            this.$inertia.put(route('current-team.update'), {
+                'team_id': team.id,
+            }, {
+                preserveState: false,
+            });
         },
 
-        data() {
-            return {
-                showingNavigationDropdown: false,
-            }
+        logout() {
+            axios.post(route('logout').url()).then(response => {
+                window.location = '/';
+            });
         },
+    },
 
-        methods: {
-            switchToTeam(team) {
-                this.$inertia.put(route('current-team.update'), {
-                    'team_id': team.id
-                }, {
-                    preserveState: false
-                })
-            },
-
-            logout() {
-                axios.post(route('logout').url()).then(response => {
-                    window.location = '/';
-                })
-            },
+    computed: {
+        path() {
+            return window.location.pathname;
         },
-
-        computed: {
-            path() {
-                return window.location.pathname
-            }
-        }
-    }
+    },
+};
 </script>

@@ -10,40 +10,40 @@
           <a v-bind:href="'/#/category/' + category.id">Link to category</a>
         </li>
       </ul>
-      <hr />
+      <hr/>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "categories",
-  components: {},
-  data() {
-    return {
-      categories: {
-        // Not nessecery for getting it in the site
-        id: "",
-        title: "",
-        created_at: "",
-      },
-    };
-  },
-
-  created() {
-    this.fetchProducts();
-  },
-
-  methods: {
-    fetchProducts(page_url) {
-      page_url = page_url || "/api/categories";
-      fetch(page_url)
-        .then((res) => res.json())
-        .then((res) => {
-          this.categories = res;
-        })
-        .catch((err) => console.log(err));
+    name: 'categories',
+    components: {},
+    data() {
+        return {
+            categories: {
+                // Not nessecery for getting it in the site
+                id: '',
+                title: '',
+                created_at: '',
+            },
+        };
     },
-  },
+
+    created() {
+        this.fetchProducts();
+    },
+
+    methods: {
+        fetchProducts(page_url) {
+            page_url = page_url || '/api/categories';
+            fetch(page_url)
+                .then((res) => res.json())
+                .then((res) => {
+                    this.categories = res;
+                })
+                .catch((err) => console.log(err));
+        },
+    },
 };
 </script>

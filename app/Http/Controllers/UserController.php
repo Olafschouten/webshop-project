@@ -7,7 +7,10 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function getOrders()
+    /**
+     * @return array
+     */
+    public function getOrders(): array
     {
         $user = Auth::user();
         dd($user);

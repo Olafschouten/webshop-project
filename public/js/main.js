@@ -39471,6 +39471,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
+ // import Orders from "./Components/Orders";
 
 var routes = [{
   path: "/products",
@@ -39497,7 +39498,8 @@ var routes = [{
 }, {
   path: "/contact",
   component: _Components_Contact__WEBPACK_IMPORTED_MODULE_11__["default"]
-}];
+} // { path: "/orders", component: Orders },
+];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   // mode: 'history',
   routes: routes

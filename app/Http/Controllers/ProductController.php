@@ -8,6 +8,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class ProductController extends Controller
 {
+    /**
+     * @return AnonymousResourceCollection
+     */
     public function index(): AnonymousResourceCollection
     {
         $products = Product::orderBy('id', 'desc')->paginate(5);
@@ -15,12 +18,16 @@ class ProductController extends Controller
         return ProductResource::collection($products);
     }
 
-    public function showOne($id)
+    /**
+     * @param $id
+     * @return array
+     */
+    public function showOne($id): array
     {
         $product = Product::findOrFail($id);
 
         return [
-            "product" => $product,
+            "product"    => $product,
             "categories" => $product->categories,
         ];
     }

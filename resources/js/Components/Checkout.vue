@@ -4,9 +4,9 @@
 
     <div v-if="cartData.products != null">
       <div v-for="product in cartData.products" :key="product.id">
-        <p>{{ product["title"] }}</p>
-        <p>Quantity: {{ product["qty"] }}</p>
-        <p>$: {{ product["price"] }}</p>
+        <p>{{ product['title'] }}</p>
+        <p>Quantity: {{ product['qty'] }}</p>
+        <p>$: {{ product['price'] }}</p>
       </div>
 
       <h2>Total $: {{ cartData.totalPrice }}</h2>
@@ -117,32 +117,32 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
-import CheckoutMixin from "../CheckoutMixin";
+import {mapActions, mapGetters} from 'vuex';
+import CheckoutMixin from '../CheckoutMixin';
 
 export default {
-  name: "Checkout",
-  mixins: [CheckoutMixin],
+    name: 'Checkout',
+    mixins: [CheckoutMixin],
 
-  data() {
-    return {
-      action: "/checkout ",
-    };
-  },
-  computed: {
-    ...mapActions("cart", ["setState", "getCartProducts"]),
-    ...mapGetters("cart", { cartData: "getCart" }),
-  },
-  methods: {
-    ...mapActions("cart", [
-      "addToCartAction",
-      "addOne",
-      "reduceOne",
-      "removeAll",
-    ]),
-    addToCart(productId) {
-      this.addToCartAction(productId);
+    data() {
+        return {
+            action: '/checkout ',
+        };
     },
-  },
+    computed: {
+        ...mapActions('cart', ['setState', 'getCartProducts']),
+        ...mapGetters('cart', { cartData: 'getCart' }),
+    },
+    methods: {
+        ...mapActions('cart', [
+            'addToCartAction',
+            'addOne',
+            'reduceOne',
+            'removeAll',
+        ]),
+        addToCart(productId) {
+            this.addToCartAction(productId);
+        },
+    },
 };
 </script>

@@ -6,7 +6,7 @@
       temporibus magnam quae natus deleniti ea dolor laborum sed fugit velit
       minus culpa ex exercitationem quas non, atque officia eveniet sunt?
     </p>
-    <br />
+    <br/>
     <h2>Contact information</h2>
     <ul>
       <li>Adress: Straat 12, 1234AB stad</li>
